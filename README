@@ -3,3 +3,5 @@ It connects to growl for windows and sends messages to growl when test runs have
 If you set the test runner to run when test assemblies changes, you will get instant feed back through growl. This way you don't have to switch between your ide and the test runner. And you don't have to do any thing other than build your source.
 
 If you want to set the NUnit test runnner to reload test automatically when they change, go to Tools->Settings->Test Loader > Assembly reload, and check all the check boxes.
+
+The status of this project is that the NUnit GUI runner is not able to load this addin...
