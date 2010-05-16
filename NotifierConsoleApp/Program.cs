@@ -10,6 +10,9 @@ namespace NotifierConsoleApp
             notifier.RegisterGrowl();
             notifier.Notify("Testing the Growl notifier",
                             "If you see this message the Growl notifier seems to be working\nEven handling newline", true);
+            notifier.Notify("Testing the Growl notifier Failure",
+                    "Failure Message!!!", false);
+
         }
     }
 }

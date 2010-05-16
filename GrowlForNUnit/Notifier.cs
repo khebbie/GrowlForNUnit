@@ -31,7 +31,7 @@ namespace GrowlForNUnit
                                                 title, message);
             else
             {
-                new Notification(_application.Name, _notificationTypeFailure.Name, DateTime.Now.Ticks.ToString(),
+                notification = new Notification(_application.Name, _notificationTypeFailure.Name, DateTime.Now.Ticks.ToString(),
                                  title, message);
             }
             _growl.Notify(notification);
