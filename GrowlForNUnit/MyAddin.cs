@@ -63,6 +63,7 @@ namespace GrowlForNUnit
         {
             foreach (IExtensionPoint extensionPoint in host.ExtensionPoints)
             {
+               // Console.WriteLine(extensionPoint.Name);
                 if (extensionPoint.Name.Equals("EventListeners"))
                     extensionPoint.Install(this);
             }
