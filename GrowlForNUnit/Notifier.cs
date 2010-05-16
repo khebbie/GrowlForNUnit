@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Growl.Connector;
 
 namespace GrowlForNUnit
@@ -18,6 +19,7 @@ namespace GrowlForNUnit
             _application = new Application("NUnit build notifier");
             NotificationType[] notificationList = {_notificationTypeSucces, _notificationTypeFailure};
             _growl.Register(_application, notificationList);
+            Thread.Sleep(2000);
         }
 
         public void Notify(string title, string message, bool success)

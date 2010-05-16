@@ -14,6 +14,7 @@ namespace GrowlForNUnit
         public GrowlAddin()
         {
             _notifier = new Notifier();
+            _notifier.RegisterGrowl();
         }
 
         #region EventListener Members
@@ -44,7 +45,7 @@ namespace GrowlForNUnit
 
         public void SuiteFinished(TestResult result)
         {
-            _notifier.Notify("Suite finished", result.Message, true);
+            //_notifier.Notify("Suite finished", result.Message, true);
         }
 
         public void UnhandledException(Exception exception)
@@ -61,14 +62,11 @@ namespace GrowlForNUnit
 
         public bool Install(IExtensionHost host)
         {
-            foreach (IExtensionPoint extensionPoint in host.ExtensionPoints)
-            {
-               // Console.WriteLine(extensionPoint.Name);
-                if (extensionPoint.Name.Equals("EventListeners"))
-                    extensionPoint.Install(this);
-            }
-           
-            _notifier.RegisterGrowl();
+            IExtensionPoint testCaseBuilders = host.GetExtensionPoint("EventListeners");
+
+            if (testCaseBuilders == null)
+                return false;
+            testCaseBuilders.Install(this); //this implments both interfaces
             return true;
         }
 
